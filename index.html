@@ -56,6 +56,10 @@
             return result;
         }
 
+        function getReferrer() {
+            return document.referrer;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             if (!localStorage.getItem('consentGiven')) {
                 document.getElementById('consent-banner').style.display = 'block';
@@ -63,8 +67,14 @@
 
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 const token = generateToken(16);
-                localStorage.setItem('accessToken', token);
-                this.href = 'landing.html?token=' + token;
+                localStorage.setItem('gaiaAccessToken', token);
+                this.href = 'gaia-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+            });
+
+            document.getElementById('google-maps-link').addEventListener('click', function(event) {
+                const token = generateToken(16);
+                localStorage.setItem('googleMapsAccessToken', token);
+                this.href = 'google-maps-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
             });
         });
 
@@ -78,7 +88,7 @@
     <h1>CSMS Claims and Neighbors</h1>
     <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14" width="800" height="600"></iframe>
     <br>
-    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.035283304733184%2C-105.2908042761522&z=14" target="_blank" class="button">View in Google Maps</a>
+    <a href="#" target="_blank" class="button" id="google-maps-link">View in Google Maps</a>
     <a href="#" target="_blank" class="button" id="gaia-gps-link">View in Gaia GPS</a>
     <div id="consent-banner">
         This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.

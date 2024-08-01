@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to Google Maps...</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const referrer = decodeURIComponent(urlParams.get('referrer'));
+            const storedToken = localStorage.getItem('googleMapsAccessToken');
+            const allowedReferrer = 'https://yourwebsite.github.io'; // Update with your actual website URL
+
+            if (token && token === storedToken && referrer.startsWith(allowedReferrer)) {
+                // Clear the token from local storage after use to ensure it's one-time use
+                localStorage.removeItem('googleMapsAccessToken');
+                window.location.href = 'https://www.google.com/maps/d/u/0/viewer?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.035283304733184%2C-105.2908042761522&z=14';
+            } else {
+                document.body.innerHTML = 'Access denied. Invalid or expired token.';
+            }
+        });
+    </script>
+</head>
+<body>
+    Redirecting to Google Maps...
+</body>
+</html>
