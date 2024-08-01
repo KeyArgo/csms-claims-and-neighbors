@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Map Title</title>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-CC1B9CQ691');
-	</script>
+    <title>CSMS Claims and Neighbors</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CC1B9CQ691');
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        iframe {
+            border: none;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Your Map Title</h1>
-    <iframe src="https://www.google.com/maps/d/embed?mid=YOUR_MAP_ID" width="640" height="480"></iframe>
+    <h1>CSMS Claims and Neighbors</h1>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14" width="800" height="600"></iframe>
+    <br>
+    <a href="https://www.google.com/maps/d/viewer?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14" target="_blank" class="button">View in Google Maps</a>
+    <a href="https://www.gaiagps.com/map/?layer=GaiaTopoRasterFeet&lat=39.03966489533956&lon=-105.32945964046155&zoom=14" target="_blank" class="button">View in Gaia GPS</a>
 </body>
 </html>
