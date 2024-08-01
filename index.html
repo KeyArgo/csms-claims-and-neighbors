@@ -32,7 +32,29 @@
         .button:hover {
             background-color: #0056b3;
         }
+        #consent-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('consentGiven')) {
+                document.getElementById('consent-banner').style.display = 'block';
+            }
+        });
+
+        function acceptConsent() {
+            localStorage.setItem('consentGiven', 'true');
+            document.getElementById('consent-banner').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
@@ -40,5 +62,9 @@
     <br>
     <a href="https://www.google.com/maps/d/viewer?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14" target="_blank" class="button">View in Google Maps</a>
     <a href="https://www.gaiagps.com/map/?layer=GaiaTopoRasterFeet&lat=39.03966489533956&lon=-105.32945964046155&zoom=14" target="_blank" class="button">View in Gaia GPS</a>
+    <div id="consent-banner">
+        This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
+        <button onclick="acceptConsent()">Accept</button>
+    </div>
 </body>
 </html>
