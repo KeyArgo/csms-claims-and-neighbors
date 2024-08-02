@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSMS Claims and Neighbors</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSMS Claims and Neighbors</title>
+<style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -43,29 +43,36 @@
       cursor: pointer;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
-  <script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-CC1B9CQ691');
+
+    function trackButtonClick(label) {
+      gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': label
+      });
+    }
   </script>
 </head>
 <body>
-  <div class="header">
-    <h1>CSMS Claims and Neighbors</h1>
-  </div>
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
-  </div>
-  <div class="buttons">
-    <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
-    <button onclick="window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
-  </div>
-  <div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
-    <script async src="/.netlify/scripts/cdp"></script>
-  </div>
+<div class="header">
+<h1>CSMS Claims and Neighbors</h1>
+</div>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
+<iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
+</div>
+<div class="buttons">
+<button onclick="trackButtonClick('Google Maps'); window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
+<button onclick="trackButtonClick('Gaia GPS'); window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
+</div>
+<div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
+<script async src="/.netlify/scripts/cdp"></script>
+</div>
 </body>
 </html>
