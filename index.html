@@ -59,8 +59,8 @@
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
-    <iframe id="google-maps-iframe" src="https://csms.argobox.com/redirect/google-maps"></iframe>
-    <iframe id="gaia-gps-iframe" src="https://csms.argobox.com/redirect/gaia-gps"></iframe>
+    <iframe id="google-maps-iframe" src=""></iframe>
+    <iframe id="gaia-gps-iframe" src=""></iframe>
     <div id="button-container">
         <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
         <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
@@ -84,9 +84,6 @@
                 document.getElementById('consent-banner').style.display = 'block';
             }
 
-            const googleMapsIframe = document.getElementById('google-maps-iframe');
-            const gaiaGpsIframe = document.getElementById('gaia-gps-iframe');
-
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 event.preventDefault();
                 const token = generateToken(16);
@@ -97,7 +94,7 @@
                     'event_label': 'Gaia GPS',
                     'value': url
                 });
-                gaiaGpsIframe.src = url;
+                document.getElementById('gaia-gps-iframe').src = url;
             });
 
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
@@ -110,7 +107,7 @@
                     'event_label': 'Google Maps',
                     'value': url
                 });
-                googleMapsIframe.src = url;
+                document.getElementById('google-maps-iframe').src = url;
             });
         });
 
