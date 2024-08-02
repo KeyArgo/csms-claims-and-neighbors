@@ -72,27 +72,29 @@
             }
 
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
+                event.preventDefault();
                 const token = generateToken(16);
                 localStorage.setItem('gaiaAccessToken', token);
-                const url = 'gaia-landing.html?token=' + token + '&utm_source=website&utm_medium=button&utm_campaign=map_redirect';
+                const url = 'https://argobox.com/redirect/gaia-gps?token=' + token;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Gaia GPS',
                     'value': url
                 });
-                this.href = url;
+                window.location.href = url;
             });
 
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
+                event.preventDefault();
                 const token = generateToken(16);
                 localStorage.setItem('googleMapsAccessToken', token);
-                const url = 'google-maps-landing.html?token=' + token + '&utm_source=website&utm_medium=button&utm_campaign=map_redirect';
+                const url = 'https://argobox.com/redirect/google-maps?token=' + token;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Google Maps',
                     'value': url
                 });
-                this.href = url;
+                window.location.href = url;
             });
         });
 
@@ -107,8 +109,8 @@
     <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14"></iframe>
     <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" seamless></iframe>
     <div id="button-container">
-        <a href="#" target="_blank" class="button" id="google-maps-link">View in Google Maps</a>
-        <a href="#" target="_blank" class="button" id="gaia-gps-link">View in Gaia GPS</a>
+        <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
+        <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
     </div>
     <div id="consent-banner">
         This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
