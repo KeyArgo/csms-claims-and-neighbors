@@ -39,7 +39,7 @@
 </head>
 <body>
   <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03554998301922,-105.29915470303165&z=14"></iframe>
-  <iframe src="https://www.gaiagps.com/directory/abc123"></iframe>
+  <iframe src="https://www.gaiagps.com/map/?lat=39.03966489533956&lon=-105.32945964046155&zoom=14&loc=14.0/-105.3120/39.0318&pubLink=VVXcZPvEfvAbvRWi5F0DQPNT&folderId=e810350b-1b3f-49bf-8f67-6a497827f190"></iframe>
   <div class="buttons">
     <button onclick="navigateToMap('google')">View on Google Maps</button>
     <button onclick="navigateToMap('gaia')">View on Gaia GPS</button>
@@ -47,9 +47,9 @@
   <script>
     function navigateToMap(map) {
       if (map === 'google') {
-        window.location.href = 'redirect-google.html';
+        window.location.href = '/google-maps';
       } else if (map === 'gaia') {
-        window.location.href = 'redirect-gaia.html';
+        window.location.href = '/gaia-gps';
       }
     }
   </script>
