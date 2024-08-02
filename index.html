@@ -5,10 +5,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CC1B9CQ691');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CC1B9CQ691');
     </script>
     <style>
         body {
@@ -59,8 +59,8 @@
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
-    <iframe id="google-maps-iframe" src=""></iframe>
-    <iframe id="gaia-gps-iframe" src=""></iframe>
+    <iframe src="https://csms.argobox.com/redirect/google-maps"></iframe>
+    <iframe src="https://csms.argobox.com/redirect/gaia-gps"></iframe>
     <div id="button-container">
         <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
         <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
@@ -84,14 +84,11 @@
                 document.getElementById('consent-banner').style.display = 'block';
             }
 
-            const googleMapsIframe = document.getElementById('google-maps-iframe');
-            const gaiaGpsIframe = document.getElementById('gaia-gps-iframe');
-
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 event.preventDefault();
                 const token = generateToken(16);
                 localStorage.setItem('gaiaAccessToken', token);
-                const url = `/redirect/gaia-gps?token=${token}`;
+                const url = `https://csms.argobox.com/redirect/gaia-gps?token=${token}`;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Gaia GPS',
@@ -104,7 +101,7 @@
                 event.preventDefault();
                 const token = generateToken(16);
                 localStorage.setItem('googleMapsAccessToken', token);
-                const url = `/redirect/google-maps?token=${token}`;
+                const url = `https://csms.argobox.com/redirect/google-maps?token=${token}`;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Google Maps',
@@ -112,16 +109,6 @@
                 });
                 window.location.href = url;
             });
-
-            const googleMapsToken = localStorage.getItem('googleMapsAccessToken');
-            if (googleMapsToken) {
-                googleMapsIframe.src = `/redirect/google-maps?token=${googleMapsToken}`;
-            }
-
-            const gaiaGpsToken = localStorage.getItem('gaiaAccessToken');
-            if (gaiaGpsToken) {
-                gaiaGpsIframe.src = `/redirect/gaia-gps?token=${gaiaGpsToken}`;
-            }
         });
 
         function acceptConsent() {
