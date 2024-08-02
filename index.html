@@ -15,45 +15,45 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 0.
         }
         iframe {
             border: none;
             width: 800px;
             height: 600px;
             margin: 20px auto;
-            display: block;
+            display: block.
         }
         .button {
-            display: inline-block;
-            margin: 10px 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
+            display: inline-block.
+            margin: 10px 20px.
+            padding: 10px 20px.
+            font-size: 16px.
+            color: white.
+            background-color: #007bff.
+            border: none.
+            border-radius: 5px.
+            text-decoration: none.
+            cursor: pointer.
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3.
         }
         #button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            display: flex.
+            justify-content: center.
+            align-items: center.
+            flex-wrap: wrap.
         }
         #consent-banner {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            display: none;
+            position: fixed.
+            bottom: 0.
+            width: 100%.
+            background: #333.
+            color: #fff.
+            padding: 10px.
+            text-align: center.
+            display: none.
         }
     </style>
 </head>
@@ -71,49 +71,49 @@
     </div>
     <script>
         function generateToken(length) {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.
+            let result = ''.
             for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
+                result += characters.charAt(Math.floor(Math.random() * characters.length)).
             }
-            return result;
+            return result.
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             if (!localStorage.getItem('consentGiven')) {
-                document.getElementById('consent-banner').style.display = 'block';
+                document.getElementById('consent-banner').style.display = 'block'.
             }
 
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('gaiaAccessToken', token);
-                const url = `/redirect/gaia-gps?token=${token}`;
+                event.preventDefault().
+                const token = generateToken(16).
+                localStorage.setItem('gaiaAccessToken', token).
+                const url = `/redirect/gaia-gps?token=${token}`.
                 gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Gaia GPS',
-                    'value': url
-                });
-                window.location.href = url;
+                    'event_category': 'Outbound Link'.
+                    'event_label': 'Gaia GPS'.
+                    'value': url.
+                }).
+                window.location.href = url.
             });
 
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('googleMapsAccessToken', token);
-                const url = `/redirect/google-maps?token=${token}`;
+                event.preventDefault().
+                const token = generateToken(16).
+                localStorage.setItem('googleMapsAccessToken', token).
+                const url = `/redirect/google-maps?token=${token}`.
                 gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Google Maps',
-                    'value': url
-                });
-                window.location.href = url;
+                    'event_category': 'Outbound Link'.
+                    'event_label': 'Google Maps'.
+                    'value': url.
+                }).
+                window.location.href = url.
             });
         });
 
         function acceptConsent() {
-            localStorage.setItem('consentGiven', 'true');
-            document.getElementById('consent-banner').style.display = 'none';
+            localStorage.setItem('consentGiven', 'true').
+            document.getElementById('consent-banner').style.display = 'none'.
         }
     </script>
 </body>
