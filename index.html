@@ -42,6 +42,11 @@
       font-size: 16px;
       cursor: pointer;
     }
+
+    /* CSS to hide Netlify Drawer */
+    iframe[src^='https://app.netlify.com'] {
+      display: none;
+    }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
@@ -63,9 +68,6 @@
   <div class="buttons">
     <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
     <button onclick="window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
-  </div>
-  <div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
-    <script async src="/.netlify/scripts/cdp"></script>
   </div>
 </body>
 </html>
