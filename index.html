@@ -1,127 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CSMS Claims and Neighbors</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CC1B9CQ691');
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        iframe {
-            border: none;
-            width: 800px;
-            height: 600px;
-            margin: 20px auto;
-            display: block;
-        }
-        .button {
-            display: inline-block;
-            margin: 10px 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        #button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        #consent-banner {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    iframe {
+      width: 100%;
+      height: 50vh;
+      border: none;
+    }
+    .buttons {
+      margin: 20px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC1B9CQ691"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CC1B9CQ691');
+  </script>
 </head>
 <body>
-    <h1>CSMS Claims and Neighbors</h1>
-    <iframe id="google-maps-iframe" src="https://csms.argobox.com/redirect/google-maps"></iframe>
-    <iframe id="gaia-gps-iframe" src="https://csms.argobox.com/redirect/gaia-gps"></iframe>
-    <div id="button-container">
-        <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
-        <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
-    </div>
-    <div id="consent-banner">
-        This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
-        <button onclick="acceptConsent()">Accept</button>
-    </div>
-    <script>
-        console.log("Script loaded");
-
-        function generateToken(length) {
-            console.log("Generating token");
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
-            for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM fully loaded and parsed");
-
-            if (!localStorage.getItem('consentGiven')) {
-                document.getElementById('consent-banner').style.display = 'block';
-            }
-
-            document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('gaiaAccessToken', token);
-                const url = `https://csms.argobox.com/redirect/gaia-gps?token=${token}`;
-                gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Gaia GPS',
-                    'value': url
-                });
-                document.getElementById('gaia-gps-iframe').src = url;
-                console.log("Gaia GPS URL: ", url);
-            });
-
-            document.getElementById('google-maps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('googleMapsAccessToken', token);
-                const url = `https://csms.argobox.com/redirect/google-maps?token=${token}`;
-                gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Google Maps',
-                    'value': url
-                });
-                document.getElementById('google-maps-iframe').src = url;
-                console.log("Google Maps URL: ", url);
-            });
-        });
-
-        function acceptConsent() {
-            localStorage.setItem('consentGiven', 'true');
-            document.getElementById('consent-banner').style.display = 'none';
-        }
-    </script>
+  <iframe src="https://www.google.com/maps/d/u/0/viewer?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03554998301922%2C-105.29915470303165&z=14"></iframe>
+  <iframe src="https://www.gaiagps.com/map/?lat=39.03966489533956&lon=-105.32945964046155&zoom=14&loc=14.0/-105.3120/39.0318&pubLink=VVXcZPvEfvAbvRWi5F0DQPNT&folderId=e810350b-1b3f-49bf-8f67-6a497827f190"></iframe>
+  <div class="buttons">
+    <button onclick="navigateToMap('google')">View on Google Maps</button>
+    <button onclick="navigateToMap('gaia')">View on Gaia GPS</button>
+  </div>
+  <script>
+    function navigateToMap(map) {
+      if (map === 'google') {
+        window.location.href = '/redirect-google';
+      } else if (map === 'gaia') {
+        window.location.href = '/redirect-gaia';
+      }
+    }
+  </script>
 </body>
 </html>
