@@ -57,6 +57,22 @@
         'event_label': label
       });
     }
+
+    function isMobile() {
+      return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    }
+
+    function openGoogleMaps() {
+      trackButtonClick('Google Maps');
+      const url = isMobile() ? 'comgooglemaps://?daddr=39.034084596004874,-105.30166849999999&zoom=15' : 'https://rebrand.ly/csmsgoogle';
+      window.location.href = url;
+    }
+
+    function openGaiaGPS() {
+      trackButtonClick('Gaia GPS');
+      const url = isMobile() ? 'gaiagps://map?center=39.034084596004874,-105.30166849999999&zoom=15' : 'https://rebrand.ly/csmsgaia';
+      window.location.href = url;
+    }
   </script>
 </head>
 <body>
@@ -68,8 +84,8 @@
 <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
 </div>
 <div class="buttons">
-<button onclick="trackButtonClick('Google Maps'); window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
-<button onclick="trackButtonClick('Gaia GPS'); window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
+<button onclick="openGoogleMaps()">View on Google Maps</button>
+<button onclick="openGaiaGPS()">View on Gaia GPS</button>
 </div>
 <div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
 <script async src="/.netlify/scripts/cdp"></script>
