@@ -56,6 +56,19 @@
             display: none;
         }
     </style>
+</head>
+<body>
+    <h1>CSMS Claims and Neighbors</h1>
+    <iframe src="/redirect/google-maps"></iframe>
+    <iframe src="/redirect/gaia-gps"></iframe>
+    <div id="button-container">
+        <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
+        <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
+    </div>
+    <div id="consent-banner">
+        This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
+        <button onclick="acceptConsent()">Accept</button>
+    </div>
     <script>
         function generateToken(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -103,18 +116,5 @@
             document.getElementById('consent-banner').style.display = 'none';
         }
     </script>
-</head>
-<body>
-    <h1>CSMS Claims and Neighbors</h1>
-    <iframe src="https://csms.argobox.com/redirect/google-maps"></iframe>
-    <iframe src="https://csms.argobox.com/redirect/gaia-gps"></iframe>
-    <div id="button-container">
-        <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
-        <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
-    </div>
-    <div id="consent-banner">
-        This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
-        <button onclick="acceptConsent()">Accept</button>
-    </div>
 </body>
 </html>
