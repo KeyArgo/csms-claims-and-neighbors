@@ -59,8 +59,8 @@
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
-    <iframe src="/redirect/google-maps"></iframe>
-    <iframe src="/redirect/gaia-gps"></iframe>
+    <iframe src="/redirect/google-maps" id="google-maps-iframe"></iframe>
+    <iframe src="/redirect/gaia-gps" id="gaia-gps-iframe"></iframe>
     <div id="button-container">
         <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
         <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
@@ -112,6 +112,22 @@
                     'value': url
                 });
                 window.location.href = url;
+            });
+
+            document.getElementById('google-maps-iframe').addEventListener('load', function() {
+                console.log('Google Maps iframe loaded successfully.');
+            });
+
+            document.getElementById('gaia-gps-iframe').addEventListener('load', function() {
+                console.log('Gaia GPS iframe loaded successfully.');
+            });
+
+            document.getElementById('google-maps-iframe').addEventListener('error', function() {
+                console.error('Error loading Google Maps iframe.');
+            });
+
+            document.getElementById('gaia-gps-iframe').addEventListener('error', function() {
+                console.error('Error loading Gaia GPS iframe.');
             });
         });
 
