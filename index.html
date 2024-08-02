@@ -56,6 +56,14 @@
     gtag('js', new Date());
     gtag('config', 'G-CC1B9CQ691');
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const netlifyDrawer = document.querySelector("iframe[src^='https://app.netlify.com']");
+      if (netlifyDrawer) {
+        netlifyDrawer.style.display = "none";
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="header">
@@ -69,5 +77,8 @@
     <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
     <button onclick="window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
   </div>
+<div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
+<script async src="/.netlify/scripts/cdp"></script>
+</div>
 </body>
 </html>
