@@ -13,13 +13,19 @@
       flex-direction: column;
       align-items: center;
     }
-    iframe {
+    .map-container {
       width: 100%;
       height: 50vh;
+      display: flex;
+    }
+    iframe {
+      flex: 1;
       border: none;
     }
     .buttons {
-      margin: 20px;
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
     }
     .buttons button {
       padding: 10px 20px;
@@ -38,8 +44,10 @@
   </script>
 </head>
 <body>
-  <iframe src="https://www.google.com/maps/d/u/0/edit?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&usp=sharing"></iframe>
-  <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; min-width: 320px; max-width:420px; width:100%; height: 420px;" seamless></iframe>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/0/viewer?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ll=39.03554998301922,-105.29915470303165&z=14"></iframe>
+    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white;"></iframe>
+  </div>
   <div class="buttons">
     <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
     <button onclick="window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
