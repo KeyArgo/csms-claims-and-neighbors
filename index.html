@@ -57,6 +57,15 @@
         }
     </style>
     <script>
+        function generateToken(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             if (!localStorage.getItem('consentGiven')) {
                 document.getElementById('consent-banner').style.display = 'block';
@@ -64,7 +73,9 @@
 
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                const url = '/redirect/gaia-gps';
+                const token = generateToken(16);
+                localStorage.setItem('gaiaAccessToken', token);
+                const url = `https://csms.argobox.com/redirect/gaia-gps?token=${token}`;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Gaia GPS',
@@ -75,7 +86,9 @@
 
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                const url = '/redirect/google-maps';
+                const token = generateToken(16);
+                localStorage.setItem('googleMapsAccessToken', token);
+                const url = `https://csms.argobox.com/redirect/google-maps?token=${token}`;
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Google Maps',
@@ -93,8 +106,8 @@
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14"></iframe>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" seamless></iframe>
+    <iframe src="https://csms.argobox.com/redirect/google-maps"></iframe>
+    <iframe src="https://csms.argobox.com/redirect/gaia-gps"></iframe>
     <div id="button-container">
         <a href="#" class="button" id="google-maps-link">View in Google Maps</a>
         <a href="#" class="button" id="gaia-gps-link">View in Gaia GPS</a>
