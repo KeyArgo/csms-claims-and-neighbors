@@ -68,13 +68,25 @@
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 const token = generateToken(16);
                 localStorage.setItem('gaiaAccessToken', token);
-                this.href = 'gaia-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                const url = 'gaia-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                gtag('event', 'click', {
+                    'event_category': 'Outbound Link',
+                    'event_label': 'Gaia GPS',
+                    'value': url
+                });
+                this.href = url;
             });
 
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
                 const token = generateToken(16);
                 localStorage.setItem('googleMapsAccessToken', token);
-                this.href = 'google-maps-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                const url = 'google-maps-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                gtag('event', 'click', {
+                    'event_category': 'Outbound Link',
+                    'event_label': 'Google Maps',
+                    'value': url
+                });
+                this.href = url;
             });
         });
 
