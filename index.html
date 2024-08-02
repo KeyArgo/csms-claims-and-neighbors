@@ -41,17 +41,8 @@
   <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03554998301922,-105.29915470303165&z=14"></iframe>
   <iframe src="https://www.gaiagps.com/map/?lat=39.03966489533956&lon=-105.32945964046155&zoom=14&loc=14.0/-105.3120/39.0318&pubLink=VVXcZPvEfvAbvRWi5F0DQPNT&folderId=e810350b-1b3f-49bf-8f67-6a497827f190"></iframe>
   <div class="buttons">
-    <button onclick="redirectToMap('google')">View on Google Maps</button>
-    <button onclick="redirectToMap('gaia')">View on Gaia GPS</button>
+    <button onclick="window.location.href='redirect.html?dest=google'">View on Google Maps</button>
+    <button onclick="window.location.href='redirect.html?dest=gaia'">View on Gaia GPS</button>
   </div>
-  <script>
-    function redirectToMap(map) {
-      if (map === 'google') {
-        window.location.replace('/google-maps');
-      } else if (map === 'gaia') {
-        window.location.replace('/gaia-gps');
-      }
-    }
-  </script>
 </body>
 </html>
