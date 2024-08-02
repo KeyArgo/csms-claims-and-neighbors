@@ -49,15 +49,10 @@
         function generateToken(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let result = '';
-            const charactersLength = characters.length;
             for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
             }
             return result;
-        }
-
-        function getReferrer() {
-            return document.referrer;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +63,7 @@
             document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
                 const token = generateToken(16);
                 localStorage.setItem('gaiaAccessToken', token);
-                const url = 'gaia-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                const url = 'gaia-landing.html?token=' + token + '&utm_source=website&utm_medium=button&utm_campaign=map_redirect';
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Gaia GPS',
@@ -80,7 +75,7 @@
             document.getElementById('google-maps-link').addEventListener('click', function(event) {
                 const token = generateToken(16);
                 localStorage.setItem('googleMapsAccessToken', token);
-                const url = 'google-maps-landing.html?token=' + token + '&referrer=' + encodeURIComponent(getReferrer());
+                const url = 'google-maps-landing.html?token=' + token + '&utm_source=website&utm_medium=button&utm_campaign=map_redirect';
                 gtag('event', 'click', {
                     'event_category': 'Outbound Link',
                     'event_label': 'Google Maps',

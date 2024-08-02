@@ -6,14 +6,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get('token');
-            const referrer = decodeURIComponent(urlParams.get('referrer'));
             const storedToken = localStorage.getItem('gaiaAccessToken');
-            const allowedReferrer = 'https://yourwebsite.github.io'; // Update with your actual website URL
 
-            if (token && token === storedToken && referrer.startsWith(allowedReferrer)) {
+            if (token && token === storedToken) {
                 // Clear the token from local storage after use to ensure it's one-time use
                 localStorage.removeItem('gaiaAccessToken');
-                window.location.href = 'https://www.gaiagps.com/map/?lat=39.03966489533956&lon=-105.32945964046155&zoom=14&loc=14.0/-105.3120/39.0318&pubLink=VVXcZPvEfvAbvRWi5F0DQPNT&folderId=e810350b-1b3f-49bf-8f67-6a497827f190';
+                window.location.href = 'https://www.gaiagps.com/map/?lat=39.03966489533956&lon=-105.32945964046155&zoom=14&loc=14.0/-105.3120/39.0318&pubLink=VVXcZPvEfvAbvRWi5F0DQPNT&folderId=e810350b-1b3f-49bf-8f67-6a497827f190&utm_source=website&utm_medium=button&utm_campaign=map_redirect';
             } else {
                 document.body.innerHTML = 'Access denied. Invalid or expired token.';
             }
