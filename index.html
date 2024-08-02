@@ -79,42 +79,46 @@
             return result;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!localStorage.getItem('consentGiven')) {
-                document.getElementById('consent-banner').style.display = 'block';
-            }
+		document.addEventListener('DOMContentLoaded', function() {
+			if (!localStorage.getItem('consentGiven')) {
+				document.getElementById('consent-banner').style.display = 'block';
+			}
 
-            document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('gaiaAccessToken', token);
-                const url = `/redirect/gaia-gps?token=${token}`;
-                gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Gaia GPS',
-                    'value': url
-                });
-                window.location.href = url;
-            });
+			document.getElementById('gaia-gps-link').addEventListener('click', function(event) {
+				event.preventDefault();
+				const token = generateToken(16);
+				console.log('Generated token for Gaia GPS:', token);  // Debug line
+				localStorage.setItem('gaiaAccessToken', token);
+				const url = `/redirect/gaia-gps?token=${token}`;
+				console.log('Redirecting to:', url);  // Debug line
+				gtag('event', 'click', {
+					'event_category': 'Outbound Link',
+					'event_label': 'Gaia GPS',
+					'value': url
+				});
+				window.location.href = url;
+			});
 
-            document.getElementById('google-maps-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                const token = generateToken(16);
-                localStorage.setItem('googleMapsAccessToken', token);
-                const url = `/redirect/google-maps?token=${token}`;
-                gtag('event', 'click', {
-                    'event_category': 'Outbound Link',
-                    'event_label': 'Google Maps',
-                    'value': url
-                });
-                window.location.href = url;
-            });
-        });
+			document.getElementById('google-maps-link').addEventListener('click', function(event) {
+				event.preventDefault();
+				const token = generateToken(16);
+				console.log('Generated token for Google Maps:', token);  // Debug line
+				localStorage.setItem('googleMapsAccessToken', token);
+				const url = `/redirect/google-maps?token=${token}`;
+				console.log('Redirecting to:', url);  // Debug line
+				gtag('event', 'click', {
+					'event_category': 'Outbound Link',
+					'event_label': 'Google Maps',
+					'value': url
+				});
+				window.location.href = url;
+			});
+		});
 
-        function acceptConsent() {
-            localStorage.setItem('consentGiven', 'true');
-            document.getElementById('consent-banner').style.display = 'none';
-        }
-    </script>
+		function acceptConsent() {
+			localStorage.setItem('consentGiven', 'true');
+			document.getElementById('consent-banner').style.display = 'none';
+		}
+
 </body>
 </html>
