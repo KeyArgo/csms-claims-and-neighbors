@@ -10,19 +10,23 @@
       gtag('js', new Date());
       gtag('config', 'G-CC1B9CQ691');
     </script>
-    <!-- Google Maps API with async loading -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&libraries=places,visualization,geometry,search"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         iframe {
             border: none;
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+            display: block;
         }
         .button {
             display: inline-block;
-            margin: 10px;
+            margin: 10px 20px;
             padding: 10px 20px;
             font-size: 16px;
             color: white;
@@ -30,9 +34,16 @@
             border: none;
             border-radius: 5px;
             text-decoration: none;
+            cursor: pointer;
         }
         .button:hover {
             background-color: #0056b3;
+        }
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
         #consent-banner {
             position: fixed;
@@ -93,12 +104,12 @@
 </head>
 <body>
     <h1>CSMS Claims and Neighbors</h1>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14" width="800" height="600"></iframe>
-    <br>
-    <a href="#" target="_blank" class="button" id="google-maps-link">View in Google Maps</a>
-    <a href="#" target="_blank" class="button" id="gaia-gps-link">View in Gaia GPS</a>
-    <br><br>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; min-width: 320px; max-width:420px; width:100%; height: 420px;" seamless></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1uaJCMW64w_zwERr9nFcVJchrZdocNbA&ll=39.03966489533956%2C-105.32945964046155&z=14"></iframe>
+    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" seamless></iframe>
+    <div id="button-container">
+        <a href="#" target="_blank" class="button" id="google-maps-link">View in Google Maps</a>
+        <a href="#" target="_blank" class="button" id="gaia-gps-link">View in Gaia GPS</a>
+    </div>
     <div id="consent-banner">
         This site uses cookies to improve your experience. By continuing to browse, you accept the use of cookies.
         <button onclick="acceptConsent()">Accept</button>
