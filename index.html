@@ -23,12 +23,13 @@
     .map-container {
       width: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex: 1;
     }
     iframe {
       flex: 1;
       border: none;
+      min-height: 420px;
     }
     .buttons {
       width: 100%;
@@ -56,12 +57,15 @@
     <h1>CSMS Claims and Neighbors</h1>
   </div>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F" width="640" height="480" style="flex: 1; border: none;"></iframe>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F"></iframe>
+    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True"></iframe>
   </div>
   <div class="buttons">
     <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
     <button onclick="window.location.href='https://rebrand.ly/csmsgaia'">View on Gaia GPS</button>
+  </div>
+  <div data-netlify-deploy-id="66ad3357ef8ab60008fe7cdb" data-netlify-site-id="d4c63ad8-dc16-4a45-a20f-aa2b8ba2eb40" data-vcs="github" style="position:fixed">
+    <script async src="/.netlify/scripts/cdp"></script>
   </div>
 </body>
 </html>
