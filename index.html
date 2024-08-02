@@ -23,13 +23,13 @@
     .map-container {
       width: 100%;
       display: flex;
-      flex-direction: row;
+      flex-direction: column; /* Change to column for vertical stacking */
       flex: 1;
     }
     iframe {
       flex: 1;
       border: none;
-      min-height: 420px;
+      height: 50%; /* Adjust as necessary to fit within the viewport */
     }
     .buttons {
       width: 100%;
@@ -57,8 +57,8 @@
     <h1>CSMS Claims and Neighbors</h1>
   </div>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F"></iframe>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True"></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F" width="640" height="480" style="flex: 1; border: none;"></iframe>
+    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" style="border:none; overflow-y: hidden; background-color:white; flex: 1;"></iframe>
   </div>
   <div class="buttons">
     <button onclick="window.location.href='https://rebrand.ly/csmsgoogle'">View on Google Maps</button>
