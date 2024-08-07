@@ -41,34 +41,6 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .legend {
-      width: 960px;
-      margin-bottom: 20px;
-      text-align: left;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .legend h3 {
-      margin-top: 0;
-    }
-    .legend ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .legend li {
-      margin-bottom: 5px;
-    }
-    .legend .color-box {
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin-right: 10px;
-    }
-    .color-green {
-      background-color: #00ff00; /* Adjust the color to match your map */
-    }
     .buttons {
       text-align: center;
       margin: 20px 0;
@@ -115,16 +87,10 @@
   <div class="map-container">
     <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F"></iframe>
     <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True"></iframe>
-    <div class="legend">
-      <h3>Legend</h3>
-      <ul>
-        <li><span class="color-box color-green"></span>CSMS Claims</li>
-      </ul>
-    </div>
   </div>
   <div class="buttons">
-    <a href="https://rebrand.ly/csmsgoogle" target="_blank" class="button">View on Google Maps</a>
-    <a href="https://rebrand.ly/csmsgaia" target="_blank" class="button">View on Gaia GPS</a>
+    <button onclick="window.open('https://rebrand.ly/csmsgoogle', '_blank')">View on Google Maps</button>
+    <button onclick="window.open('https://rebrand.ly/csmsgaia', '_blank')">View on Gaia GPS</button>
   </div>
   <div class="footer">
     <p>&copy; 2024 Daniel LaForce. All rights reserved.</p>
