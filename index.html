@@ -46,7 +46,6 @@
       align-items: center;
       flex: 1;
       padding: 20px;
-      position: relative;
     }
     iframe {
       width: 960px;
@@ -54,16 +53,6 @@
       border: none;
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .watermark {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 48px;
-      color: rgba(255, 255, 255, 0.5);
-      pointer-events: none;
-      z-index: 10;
     }
     .legend {
       width: 960px;
@@ -131,9 +120,18 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-CC1B9CQ691');
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
+  </script>
+  <script>
+    function reloadIframe() {
+      var iframe = document.getElementById('gaiaMap');
+      iframe.src = iframe.src;
+    }
+    function onLoadHandler() {
+      var iframe = document.getElementById('gaiaMap');
+      if (iframe.contentWindow.location.href === "about:blank") {
+        reloadIframe();
+      }
+    }
   </script>
 </head>
 <body>
@@ -147,9 +145,8 @@
     <a href="#contact">Contact</a>
   </div>
   <div class="map-container">
-    <div class="watermark">Inovin LLC</div>
     <iframe src="https://www.google.com/maps/d/embed?mid=1CH09O8Gp7sQ6H2GdybFvRdLB-1vElVc&ehbc=2E312F"></iframe>
-    <iframe src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True"></iframe>
+    <iframe id="gaiaMap" src="https://www.gaiagps.com/public/VVXcZPvEfvAbvRWi5F0DQPNT/?embed=True" onload="onLoadHandler()"></iframe>
     <div class="legend">
       <h3>Legend</h3>
       <ul>
