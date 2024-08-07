@@ -33,6 +33,7 @@
       align-items: center;
       flex: 1;
       padding: 20px;
+      position: relative;
     }
     iframe {
       width: 960px; /* 800px + 20% */
@@ -42,13 +43,16 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .legend {
-      width: 960px;
+      width: 200px;
       margin-bottom: 20px;
       text-align: left;
       padding: 10px;
       background-color: #fff;
       border: 1px solid #ccc;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
     .legend h3 {
       margin-top: 0;
@@ -73,7 +77,7 @@
       text-align: center;
       margin: 20px 0;
     }
-    .buttons button {
+    .buttons a {
       padding: 10px 20px;
       margin: 0 10px;
       font-size: 16px;
@@ -82,9 +86,10 @@
       color: white;
       border: none;
       border-radius: 5px;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .buttons button:hover {
+    .buttons a:hover {
       background-color: #3498db;
     }
     .footer {
@@ -123,8 +128,8 @@
     </div>
   </div>
   <div class="buttons">
-    <a href="https://rebrand.ly/csmsgoogle" target="_blank" class="button">View on Google Maps</a>
-    <a href="https://rebrand.ly/csmsgaia" target="_blank" class="button">View on Gaia GPS</a>
+    <a href="https://rebrand.ly/csmsgoogle" target="_blank">View on Google Maps</a>
+    <a href="https://rebrand.ly/csmsgaia" target="_blank">View on Gaia GPS</a>
   </div>
   <div class="footer">
     <p>&copy; 2024 Daniel LaForce. All rights reserved.</p>
